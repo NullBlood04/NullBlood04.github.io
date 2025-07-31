@@ -1,0 +1,163 @@
+/* Basic Reset & Body Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #c9d1d9; /* Light text color */
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    overflow-x: hidden; /* Hide horizontal overflow to keep shapes contained */
+    position: relative;
+
+    /* --- BACKGROUND IMAGE --- */
+    /* You can replace this URL with a path to your own image, e.g., url('my-background.jpg') */
+    background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop');
+    background-color: #0d1117; /* Fallback color if the image can't load */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* The background image will not scroll with the page */
+}
+
+/* Animated Gradient Shapes for Background */
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-shapes::before,
+.background-shapes::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.3;
+}
+
+.background-shapes::before {
+    background: radial-gradient(circle, #58a6ff, transparent 60%);
+    top: -10%;
+    left: -10%;
+    animation: move-shape1 20s infinite alternate;
+}
+
+.background-shapes::after {
+    background: radial-gradient(circle, #a371f7, transparent 60%);
+    bottom: -10%;
+    right: -10%;
+    animation: move-shape2 25s infinite alternate;
+}
+
+@keyframes move-shape1 {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(100px, 50px) rotate(45deg); }
+}
+
+@keyframes move-shape2 {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(-80px, -40px) rotate(-60deg); }
+}
+
+
+/* Main Layout */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+h1, h2, h3 {
+    color: #f0f6fc;
+    font-weight: 700;
+}
+
+a {
+    color: #58a6ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #79c0ff;
+}
+
+/* The Glassmorphism Effect */
+.glass-card {
+    /* The key to the glass effect */
+    background: rgba(30, 41, 59, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* For Safari */
+
+    /* Border and Shadow for depth */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    /* General padding and margin */
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Header & Navigation */
+header.glass-card {
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #8b949e;
+}
+
+/* Projects Section */
+#projects h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Footer */
+footer.glass-card {
+    text-align: center;
+    max-width: 1000px;
+    margin: 2rem auto 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
